@@ -4,34 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contract - Location Car Project</title>
-   
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/ssttyyll.css" />
+    
+    
   </head>
   <body>
-    <h1>Contrat</h1>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="explore-cars.html">Explore Cars</a></li>
-        <li><a href="search.html">Search</a></li>
-        <li><a href="contrat.html">Contrat</a></li>
-        <li><a href="payment.html">Payment</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <h2>Contract Details</h2>
+    <header>
+      <h1>Contrat</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="explore-cars.html">Explore Cars</a></li>
+          <li><a href="rent.html">Rent</a></li>
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <h2>Contrat Details</h2>
     <p><strong>Car Type:</strong> <span id="car-type"></span></p>
-    <p>
-      <strong>Rental Duration (days):</strong> <span id="rental-days"></span>
-    </p>
+    <p><strong>Rental Duration (days):</strong> <span id="rental-days"></span></p>
     <p><strong>Start Date:</strong> <span id="start-date"></span></p>
     <p><strong>Location:</strong> <span id="location"></span></p>
-    <p>
-      <strong>Additional Information:</strong>
-      <span id="additional-info"></span>
-    </p>
+    <p><strong>Additional Information:</strong> <span id="additional-info"></span></p>
 
-    <script src="js/contrat.js"></script>
-  </body>
+    <!-- Create Contract Button -->
+    <button id="createContractButton">Create Contract</button>
+
+    <!-- The Popup (Poster) -->
+    <div id="popup" class="popup">
+      Great! The contract was created.
+    </div>
+
+
+ <!-- Overlay -->
+ <div id="overlay" class="overlay"></div>
+ <br>
+ <footer>
+   <div class="container">
+     <p>&copy; 2025 Car Rental. All rights reserved.</p>
+   </div>
+   
+ </footer>
+ <script>
+   // Retrieve data from localStorage and display it automatically
+   document.getElementById('car-type').textContent = localStorage.getItem('carType');
+   document.getElementById('rental-days').textContent = localStorage.getItem('rentalDuration');
+   document.getElementById('start-date').textContent = localStorage.getItem('startDate');
+   document.getElementById('location').textContent = localStorage.getItem('location');
+   document.getElementById('additional-info').textContent = localStorage.getItem('additionalInfo');
+
+   // Add event listener to the "Create Contract" button
+   document.getElementById('createContractButton').addEventListener('click', function() {
+     // Show the popup and overlay
+     document.getElementById('popup').classList.add('show');
+     document.getElementById('overlay').classList.add('show');
+
+     // After 3 seconds, hide the popup
+     setTimeout(function() {
+       document.getElementById('popup').classList.remove('show');
+       document.getElementById('overlay').classList.remove('show');
+     }, 3000); // The popup will disappear after 3 seconds
+   });
+ </script>
+</body>
 </html>

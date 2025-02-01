@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search - Location Car Project</title>
+   
+    <link rel="stylesheet" href="css/ssttyyll.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Rent</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="explore-cars.html">Explore Cars</a></li>
+        <li><a href="payment.html">Payment</a></li>
+        <li><a href="contrat.html">Contrat</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <br>
+  <br>
+    <h2>rent a Car</h2>
+    <form id="search-form">
+      <label for="car-type">Car Type:</label>
+      <input type="text" id="car-type" name="car-type" required />
+      <br />
+      <label for="rental-days">Rental Duration (days):</label>
+      <input type="number" id="rental-days" name="rental-days" required />
+      <br />
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" name="start-date" required />
+      <br />
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required />
+      <br />
+      <label for="additional-info">Additional Information:</label>
+      <textarea id="additional-info" name="additional-info"></textarea>
+      <br />
+      <button type="button" id="nextButton">Next</button>
+    </form>
+    <br>
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Car Rental. All rights reserved.</p>
+      </div>
+      
+    </footer>
+    <script>
+   document.getElementById('nextButton').addEventListener('click', function() {
+  // Store the form data in localStorage
+  localStorage.setItem('carType', document.getElementById('car-type').value);
+  localStorage.setItem('rentalDuration', document.getElementById('rental-days').value);
+  localStorage.setItem('startDate', document.getElementById('start-date').value);
+  localStorage.setItem('location', document.getElementById('location').value);
+  localStorage.setItem('additionalInfo', document.getElementById('additional-info').value);
+
+  // Redirect to the Payment page
+  window.location.href = 'payment.html';
+});
+
+    </script>
+    
+  </body>
+</html>
